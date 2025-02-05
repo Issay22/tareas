@@ -1,0 +1,301 @@
+:root {
+  --blanco: whitesmoke;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1.3px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* top */
+h1 {
+  color: black;
+  margin: 20px 0 20px 0;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.app-filtros{
+  width: 350px;
+  margin: 20px auto;
+}
+
+.filtro{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#filtro-tareas {
+  width: 60%;
+  padding: 2px;
+}
+
+#ordenar-tareas{
+  width: 60%;
+  padding: 2px;
+}
+
+#eliminar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto 20px;
+  height: 50px;
+}
+
+#btn-eliminar-tareas,
+#btn-eliminar-todas-tareas{
+  width: 45%;
+  margin: 0 auto;
+  font-size: medium;
+}
+
+/* principal */
+.app-tareas {
+  background-color: var(--blanco);
+  width: 300px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 5px #000000;
+}
+
+
+/*botones */
+.btn {
+  background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+  cursor: pointer;
+  width: 110px;
+  margin: 10px;
+  text-align: center;
+  background-size: 200% auto;
+  color: rgb(0, 0, 0);            
+  box-shadow: 0 0 5px #000000;
+  border-radius: 5px;
+  display: block;
+}
+
+.btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-grande {
+  width: 80%;
+  font-size: 1.2rem;
+  align-self: center;
+  justify-self: center;
+}
+
+.btn-cerrar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icono-cerrar {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* formulario */
+.tarea-form {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--blanco);
+  border-radius: 5px;
+  padding: 15px;
+  width: 300px;
+  height: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+  box-shadow: 0 0 5px #000000;
+  border: 1px solid black;
+}
+
+
+/*adentro form */
+.encabezado-tarea {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cuerpo-tarea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.pie-tarea {
+  display: flex;
+  justify-content: center;
+}
+
+
+.etiqueta-tarea,
+#input-titulo,
+#input-fecha,
+#input-descripcion {
+  display: block;
+}
+
+.etiqueta-tarea {
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#input-titulo,
+#input-fecha,
+#input-descripcion {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 2px;
+}
+
+
+/* Modal*/
+#modal {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 15px;
+}
+
+.contenedor-btn-modal {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.texto-mensaje-descartar {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+
+/* lista de tareas*/
+#contenedor-tareas {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tarea {
+  margin: 5px 0;
+  word-wrap: break-word;
+  padding-bottom: 20px;
+}
+
+.tarea .descripcion {
+  max-height: 50px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.tarea .descripcion.expandida {
+  max-height: 300px; 
+}
+
+#acomdr-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* para cambiar entre un pantalla a otra (toggle)*/
+.oculto {
+  display: none;
+}
+
+
+/* responsivo */
+@media (min-width: 500px) {
+  .app-tareas,
+  .tarea-form {
+    width: 400px;
+    height: 500px;
+  }
+
+  .etiqueta-tarea {
+    font-size: 1.5rem;
+  }
+
+  #input-titulo,
+  #input-fecha {
+    height: 2rem;
+  }
+
+  #input-titulo,
+  #input-fecha,
+  #input-descripcion {
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+
+  .app-filtros {
+    width: 400px;
+  }
+
+  .filtro {
+    justify-content: space-around;
+  }
+
+  #btn-eliminar-tareas,
+  #btn-eliminar-todas-tareas {
+    width: 45%;
+  }
+
+  .btn-grande {
+    width: 60%;
+  }
+
+  .tarea {
+    padding-bottom: 30px;
+  }
+
+  .texto-mensaje-descartar {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  main {
+    padding: 20px;
+  }
+}

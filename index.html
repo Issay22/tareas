@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendientes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main>
+    <h1>Tareas  pendientes //almacenamiento local</h1>
+
+    <div class="app-filtros">
+
+      <div class="filtro">
+        <label for="filtro-tareas"><strong>Filtrar por: </strong></label>
+        <select id="filtro-tareas">
+          <option value="todas">Todas</option>
+          <option value="pendientes">Pendientes</option>
+          <option value="completadas">Completadas</option>
+        </select>
+      </div>
+        <br>
+      <div class="filtro">
+        <label for="ordenar-tareas"><strong>Ordenar por: </strong></label>
+        <select id="ordenar-tareas">
+          <option value="fecha-ascendente">Fecha ascendente</option>
+          <option value="fecha-descendente">Fecha descendente</option>
+        </select>
+      </div>
+
+      <div id="eliminar">
+      <button id="btn-eliminar-tareas" class="btn"><strong>Eliminar tareas Completadas</strong></button>
+      <button id="btn-eliminar-todas-tareas" class="btn"><strong>Eliminar Todas las Tareas</strong></button>
+      </div>
+
+    </div>
+
+    <div class="app-tareas">
+      
+      <button id="btn-abrir-tarea-form" class="btn btn-grande">Agregar Nueva Tarea</button>
+
+      <form class="tarea-form oculto" id="tarea-form">
+
+        <!-- primera linea en la der para cerrar X-->
+        <div class="encabezado-tarea">
+          <button id="btn-cerrar-tarea-form" class="btn-cerrar" type="button" aria-label="cerrar">
+            <svg class="icono-cerrar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+              <path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)" />
+              <path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="cuerpo-tarea">
+          <label class="etiqueta-tarea" for="input-titulo">Título</label>
+          <input required type="text" class="form-control" id="input-titulo" value="" />
+          <label class="etiqueta-tarea" for="input-fecha">Fecha</label>
+          <input type="date" class="form-control" id="input-fecha" value="" />
+          <label class="etiqueta-tarea" for="input-descripcion">Descripción</label>
+          <textarea class="form-control" id="input-descripcion" cols="30" rows="5"></textarea>
+        </div>
+
+        <!-- btn submit -->
+        <div class="pie-tarea">
+          <button id="btn-agregar-actualizar-tarea" class="btn btn-grande" type="submit">Agregar pendiente</button>
+        </div>
+
+      </form>
+
+      <dialog id="modal">
+
+        <form method="dialog">
+          <p class="texto-mensaje-descartar">Descartar cambios no guardados?</p>
+
+          <div class="contenedor-btn-modal">
+            <button id="btn-cancelar" class="btn">Cancelar</button>
+            <button id="btn-descartar" class="btn">Descartar</button>
+          </div>
+
+        </form>
+
+      </dialog>
+
+      <div id="contenedor-tareas"></div>
+
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
